@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trello Todo</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./index.js" defer></script>
+</head>
+<body>
+    <div id="main-container">
+        <div class="columns">
+            <h1 style="color:white; text-align:center;">ToDo (<span id="todocount">0</span>)</h1>
+            <div class="tasks" id="todos" ></div>
+            <input type="text" placeholder="task..." id="todo-input" />
+            <button class="btn"  onclick="handleAddBtn('todo-input')">Add Task</button>
+        </div>
+        <div class="columns" >
+            <h1 style="color:white; text-align: center;">Doing (<span id="doingcount">0</span>)</h1>
+            <div class="tasks" id="doing"></div>
+            <input type="text" placeholder="task..." id="doing-input" />
+            <button class="btn"  onclick="handleAddBtn('doing-input')">Add Task</button>
+        </div>
+        <div class="columns" >
+            <h1 style="color:white; text-align: center;">Done (<span id="donecount">0</span>)</h1>
+            <div class="tasks" id="done"></div>
+            <input type="text" placeholder="task..." id="done-input" />
+            <button class="btn" onclick="handleAddBtn('done-input')" >Add Task</button>
+        </div>
+    </div>
+
+    <div id="editPopup">
+        <ul>
+            <li onClick="handleEditbtn()">Edit</li>
+            <li onClick="handleDelbtn()">Delete</li>
+        </ul>
+    </div>
+</body>
+</html>

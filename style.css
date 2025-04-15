@@ -1,0 +1,96 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: gilroy;
+}
+/* set scrollbar height and weidth to 0 so that it will be removed from page */
+::-webkit-scrollbar{
+  width: 0px;
+  height:1px;
+  background-color: rgb(134, 40, 196)
+}
+
+body{
+  background-color: rgba(9, 9, 9, 0.948);
+  padding: 5vw;
+}
+
+#main-container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap:1vw;
+  justify-content: center;
+  align-items: center;
+}
+
+.columns{
+  width:26%;
+  border:1px solid white;
+  border-radius: 0.3vw;
+  padding:2px;
+  padding-bottom: 1vw;
+  background-color: black;
+}
+
+.btn{
+  width: 95%;
+  margin-left: 0.6vw;
+  background-color: #27DFB3;
+  border: none;
+  padding:0.4vw 0.5vw;
+  font-size: large;
+  border-radius: 0.2vw;
+}
+
+.btn:hover{
+  background-color: #5bf5d1;
+}
+
+input{
+  padding:0.4vw 0.5vw;
+  width: 100%;
+  margin-top: 2vw;
+  margin-bottom: 0.4vw;
+  font-size: large;
+  width: 95%;
+  margin-left: 0.6vw;
+  outline:none;
+}
+
+.btn:hover{
+  cursor: pointer;
+}
+
+#todos, #doing, #done{
+  min-height:28vw;
+  overflow-y:scroll;
+
+}
+
+@media screen and (max-width: 500px) {
+  #main-container{
+    flex-direction:column;
+  }
+  .columns{
+    width:100%;
+    margin-top:4vw
+  }
+}
+
+#editPopup{
+  display:none;
+  background-color: white;
+  position:absolute;
+  padding:1vw 3vw;
+  border-radius:6px;
+}
+
+#editPopup ul{
+  list-style-type:none;
+}
+#editPopup ul li{
+ margin-top: 0.4vw;
+ cursor:pointer;
+}
