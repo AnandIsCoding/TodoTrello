@@ -17,6 +17,9 @@ let rightClickedTodoTask = null;
 let todocount = document.getElementById("todocount"),
   doingcount = document.getElementById("doingcount"),
   donecount = document.getElementById("donecount");
+
+  let alltodos = JSON.parse(localStorage.getItem('alltodos')) || []
+  
 todoinput.addEventListener("input", (event) => {
   todoinputvalue = event.target.value;
 });
@@ -38,6 +41,25 @@ function handleEditMenu(event) {
 document.addEventListener("click", () => {
   editPopup.style.display = "none";
 });
+
+window.addEventListener('DOMContentLoaded', () => {
+    let alltodos = JSON.parse(localStorage.getItem('alltodos')) || [];
+
+    alltodos.forEach(task => {
+        const taskElem = document.createElement('div');
+        // taskElem.draggable = true;
+        taskElem.className = 'task'; 
+        const currentdatetime = new Date().toLocaleString(); // or use stored date if you're saving it
+
+        taskElem.innerHTML = `<h4>${task}</h4><br><small>${currentdatetime}</small>`;
+        // console.log(taskElem.innerHTML)
+        todos.append(taskElem);
+    });
+
+    // Update count after rendering
+    todocount.textContent = todos.childElementCount;
+});
+
 
 function handleAddBtn(val) {
   let currentdatetime = new Date().toLocaleString();
@@ -66,7 +88,11 @@ function handleAddBtn(val) {
     taskElem.innerHTML = `<h4>${todoinputvalue}</h4><br><small>${currentdatetime}</small>`; //textContent = doneinputvalue
     todos.appendChild(taskElem);
     todocount.textContent = todos.childElementCount;
+    let alltodos = JSON.parse(localStorage.getItem('alltodos')) || []
+    alltodos.push(todoinputvalue)
+    localStorage.setItem('alltodos', JSON.stringify(alltodos));
     todoinput.value = "";
+
   }
 }
 

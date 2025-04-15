@@ -40,6 +40,6 @@ A simple and interactive **To-Do Application** built with JavaScript that allows
 
 ## 🛠️ Live App
 
-  https:// Update soon....
+ https://jhajitodo.netlify.app/
 
 
